@@ -2,13 +2,6 @@
 #include "mesinkar.h"
 #include <unistd.h>
 
-#ifndef MARK
-#define MARK '.'
-#endif // MARK
-
-/* definisi states */
-char CC;
-
 /* definisi pita */
 #define Pita_karakter "database/Dictionary.txt"
 static int _handle;

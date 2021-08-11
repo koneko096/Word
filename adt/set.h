@@ -12,8 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "bukan_string.h"
-#include "../global.h"
+#include "lqstring.h"
 
 /* ADT Set dengan representasi List double pointer: prev dan next
  * Dengan 2 penunjuk list: first dan last

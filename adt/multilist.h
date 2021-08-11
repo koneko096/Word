@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include "bukan_string.h"
+#include "lqstring.h"
 #include "jam.h"
 #include "tanggal.h"
 

@@ -7,16 +7,18 @@
 /**** DEFINISI TIPE PQ (PRIORITY QUEUE) ****/
 typedef struct PQElmt_t* PQueue;
 typedef struct PQElmt_t {
-	char Info[20];
-	PQueue Next;
+    char Info[20];
+    int Priority;
+    PQueue Next;
 } PQElmt;
 
 
 /**** SELEKTOR ****/
-#define PQEmpty 	NULL
-#define PQFirst(L) 	(L)
-#define PQInfo(L) 	(L)->Info
-#define PQNext(L) 	(L)->Next
+#define PQEmpty 		NULL
+#define PQFirst(L) 		(L)
+#define PQInfo(L) 		(L)->Info
+#define PQPriority(L) 	(L)->Priority
+#define PQNext(L) 	    (L)->Next
 
 
 /**** KONSTRUKTOR ****/
@@ -42,7 +44,7 @@ void PQDeallocate(PQueue* T);
 
 
 /**** PENYISIPAN DAN PENGHAPUSAN ELEMEN *****/
-void PQPush(PQueue* T, char X[20]);
+void PQPush(PQueue* T, char X[20], int priority);
 /* Menambahkan elemen X ke PQ T */
 
 void PQPop(PQueue* T, char* X);

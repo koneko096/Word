@@ -4,7 +4,7 @@
 #define QUEUE_H
 #include "boolean.h"
 #include <stdlib.h>
-#include "bukan_string.h"
+#include "lqstring.h"
 
 /* Konstanta */
 #define NilQueue 0

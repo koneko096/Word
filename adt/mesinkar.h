@@ -9,6 +9,9 @@
 #define MARK '.'
 #endif // MARK
 
+/* definisi states */
+char CC;
+
 void START();
 /*
     I.S Sembarang

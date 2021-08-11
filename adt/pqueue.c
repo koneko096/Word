@@ -1,9 +1,11 @@
 #include "pqueue.h"
+#include "lqstring.h"
 #include <stdio.h>
+#include <stdbool.h>
 
 /* definisi fungsi diluar ADT */
-extern int getSkor(char* x);
-extern void gotoxy(int _x, int _y);
+// extern int getSkor(char* x);
+// extern void gotoxy(int _x, int _y);
 
 /**** KONSTRUKTOR ****/
 void CreatePQ(PQueue* T)
@@ -50,14 +52,14 @@ void PQDeallocate(PQueue* T)
 
 
 /**** PENYISIPAN DAN PENGHAPUSAN ELEMEN *****/
-void PQPush(PQueue* T, char X[20])
+void PQPush(PQueue* T, char X[20], int priority)
 /* Menambahkan elemen X ke PQ T */
 {
 	/* Kamus lokal */
 	PQueue P;
 
 	/* Algoritma */
-	if (isPQEmpty(*T) || getSkor(PQInfo(PQFirst(*T))) < getSkor(X))
+	if (isPQEmpty(*T) || PQPriority(PQFirst(*T)) < priority)
 	{
 		P = PQAllocate(X);
 		if (!isPQEmpty(*T))
@@ -66,7 +68,7 @@ void PQPush(PQueue* T, char X[20])
 		}
 		PQFirst(*T) = P;
 	}
-	else if (PQNext(*T) == PQEmpty || getSkor(PQInfo(PQNext(PQFirst(*T)))) < getSkor(X))
+	else if (PQNext(*T) == PQEmpty || PQPriority(PQNext(PQFirst(*T))) < priority)
 	{
 		P = PQAllocate(X);
 		PQNext(P) = PQNext(*T);
@@ -74,7 +76,7 @@ void PQPush(PQueue* T, char X[20])
 	}
 	else
 	{
-		PQPush(&PQNext(*T), X);
+		PQPush(&PQNext(*T), X, priority);
 	}
 }
 
@@ -102,11 +104,9 @@ mengecil berdasar prioritas */
 	if (isPQEmpty(P) || x == 22) {
 		return;
 	}
-	gotoxy(x, 63);
 	char temp[20];
 	strcpy(temp, PQInfo(PQFirst(P)));
-	printf("+%d", getSkor(temp));
-	gotoxy(x, 67);
+	printf("+%d", PQPriority(PQFirst(P)));
 	printf("%s", temp);
 	PrintInfoPQ(PQNext(PQFirst(P)), x + 1);
 }

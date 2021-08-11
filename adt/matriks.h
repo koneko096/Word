@@ -6,7 +6,7 @@
 #ifndef MATRIKS_H
 #define MATRIKS_H	
 #include <stdio.h>
-#include "point.c"
+#include "point.h"
 #include "boolean.h"
 /* Ukuran minimum dan maksimum baris dan kolom */
 

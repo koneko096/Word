@@ -1,4 +1,4 @@
-#include "mesinkar.c"
+#include "mesinkar.h"
 #include "mesinkata.h"
 
 /* ***** Definisi State Mesin Kata ***** */
