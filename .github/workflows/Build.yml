@@ -22,7 +22,7 @@ jobs:
       with:
         cmake-version: '3.x'
     - name: Create directory
-      run: mkdir -p build && cd build
+      run: ls -al && mkdir -p build && cd build
     - name: Generate build
       run: cmake ..
     - name: Build

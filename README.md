@@ -1,11 +1,16 @@
-Wordament-0 (tm) by programming laboratories
-as a final project
+# Wordament-0 (tm)
+by programming laboratories as a final project
 
-
-How to Use
+## Requirements
 ---------
-- Compile file main.c with command :
-  gcc main.c -o executableFile
-- Execute the executable file :
-  ./executableFile (for Linux / MacOS) /
-  executableFile (for Windows)
+Only CMake and your native C build system (Makefile / Visual Studio / XCode)
+
+## How to Use
+---------
+```
+mkdir -p build
+cd build
+cmake ..
+make    # replace with proper build command
+./wordament
+```
