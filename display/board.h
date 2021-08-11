@@ -3,18 +3,29 @@
 
 #include "../adt/matriks.c"
 #include "../adt/point.h"
+#include "../adt/set.h"
+#include "../adt/pqueue.h"
+#include "../adt/stack.h"
+#include "../adt/multilist.h"
+#include "../adt/queue.h"
+#include "../adt/user.h"
 #include <stdbool.h>
-#include "displayboard.c"
-#include "../global.h"
+#include "displayboard.h"
 
 /** DEFINISI TIPE BOARD **/
 typedef MATRIKS Board;
+
+#define MAX_EXPECTED_SUGGEST 100
+#define MAX_EXPECTED_USER 1000
+#define N_BOARD 10
 
 /* Papan permainan yang sedang digunakan */
 int rotateCounter = 0;
 char letterBoard[5][5];
 char* captionKeterangan[4];
 int idCaption;
+int PilihanBoard;
+Queue Suggestion[MAX_EXPECTED_USER][N_BOARD];
 
 bool activeSelect = false;
 bool visited[5][5];
@@ -39,7 +50,7 @@ const point dpos[] = {
 };
 
 /** KONSTRUKTOR **/
-void CreateBoard();
+void CreateBoard(int PilihanBoard);
 /* Membuat board siap main dari file yang dberikan */
 
 
@@ -47,12 +58,10 @@ void CreateBoard();
 void RotateBoard();
 /* Merotasi board 90 derajat clockwise */
 
-void PrintSuggest();
-
 void PrintKataPernah();
 
 /** CETAK PAPAN PERMAINAN **/
-void PrintBoard(int x_in, int y_in);
+void PrintBoard(int x_in, int y_in, long Totalscore, int idOnlineUser);
 /* Mencetak isi papan permainan sekarang */
 
 
@@ -60,10 +69,6 @@ void PrintBoard(int x_in, int y_in);
 void moveCursor(char cc);
 /* Memindah posisi kursor */
 
-void PrintMiniHighScore();
-
-/** GAMEPLAY **/
-void gamePlay();
-/* Menjalankan permainan */
+void PrintMiniHighScore(MultiList Highscore, char* onlineUser);
 
 #endif

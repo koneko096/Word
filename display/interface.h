@@ -1,9 +1,9 @@
 /**
  * Nama file	: interface.h
- * Topik			: Display
+ * Topik		: Display
  * Tanggal 		: 13 November 2014
  * Deskripsi	: File Header Display Menu Utama
- * Author			: Luqman Arifin
+ * Author		: Luqman Arifin
  */
 
 #ifndef _INTERFACE__
@@ -15,50 +15,22 @@
 #include <termios.h>
 #include <time.h>
 
-bool loginSalah;
-
-static struct termios old_termios, new_termios;
-
 /* restore new terminal i/o settings */
-void resetTermios(){
-	tcsetattr(0,TCSANOW,&old_termios);
-}
+void resetTermios();
 
 /* initialize new terminal i/o settings */
-void initTermios(){
-	tcgetattr(0,&old_termios); // store old terminal
-	new_termios = old_termios; // assign to new setting
-	new_termios.c_lflag &= ~ICANON; // disable buffer i/o
-	new_termios.c_lflag &= ~ECHO; // disable echo mode
-	tcsetattr(0,TCSANOW,&new_termios); // use new terminal setting
-}
+void initTermios();
 
 /* detect keyboard press */
-int kbhit(){
-	struct timeval tv = {0L,0L};
-	fd_set fds;
-	FD_ZERO(&fds);
-	FD_SET(0,&fds);
-	return select(1,&fds,NULL,NULL,&tv);
-}
+int kbhit();
 
 /* read 1 character */
-char getch(){
-	char ch;
-	ch = getchar();
-	return ch;
-}
+char getch();
 
-void gotoxy(int x, int y) {
-	printf("%c[%d;%df", 0x1B, x, y);
-}
+void gotoxy(int x, int y);
 
-void HideCursor() {
-	printf("\e[?25l");
-}
+void HideCursor();
 
-void ShowCursor() {
-	printf("\e[?25h");
-}
+void ShowCursor();
 
 #endif

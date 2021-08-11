@@ -13,25 +13,11 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "lqstring.h"
+#include "user.h"
 #include "jam.h"
 #include "tanggal.h"
 
 #define Nil NULL
-
-typedef struct {
-	char name[20];
-	Tanggal date;
-	Jam time;
-	int skor;
-} User;
-
-/* Selektor */
-
-#define GetNama(U) (U).name
-#define GetTanggal(U) (U).date
-#define GetJam(U) (U).time
-#define GetSkor(U) (U).skor
-
 
 typedef struct tElementMultiList* addressMulti;
 typedef struct tElementMultiList {
@@ -50,9 +36,6 @@ typedef struct {
 #define FirstMulti(L) (L).first
 
 /** PRIMITIF PRIMITIF LIST **/
-
-bool IsUserSama(User U1, User U2);
-
 addressMulti AlokasiMulti(User U);
 void DealokasiMulti(addressMulti p);
 

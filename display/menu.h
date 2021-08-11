@@ -11,12 +11,14 @@
 
 #include <stdbool.h>
 #include <stdio.h>
-#include "../adt/bukan_string.h"
+#include "../adt/lqstring.h"
+#include "../adt/multilist.h"
+#include "../adt/user.h"
 #include "interface.h"
-#include "../global.h"
-#include "prep.h"
 
 const char *caption[5];
+
+#define DUMMY_ID -1
 
 /* Mencetak Print Menu */
 void PrintMain(bool stat[5]);
@@ -30,16 +32,16 @@ void TemplateRegis();
 
 void TemplateAgain(bool again);
 
-void PrintRegisAgain(int salah);
+void PrintRegisAgain(int salah, char** registeredUser, int nRegisteredUser);
 
-void PrintRegister();
+void PrintRegister(char** registeredUser, int nRegisteredUser);
 
 
 void TemplateLogin(bool again);
 
-void PrintLoginAgain();
+void PrintLoginAgain(char** registeredUser, int nRegisteredUser);
 
-void PrintLogin();
+int PrintLogin(char** registeredUser, int nRegisteredUser);
 
 
 void PrintAzam();
@@ -59,5 +61,14 @@ void PrintAbout(bool st[5]);
 
 void About();
 
+
+const char *captionprep[5];
+
+/* Mencetak Print Menu */
+void PrintPrep(bool statprep[5], char* onlineUser, int PilihanBoard);
+void PrintUserHighScore(MultiList Highscore, char* onlineUser);
+void PrintAllTimeHighScore(MultiList Highscore, char* onlineUser);
+void PrintPilih(bool statprep[10]);
+void PilihBoard(int PilihanBoard);
 
 #endif

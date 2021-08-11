@@ -1,21 +1,4 @@
-/*
- * Nama file	: interface.h
- * Topik		: Display
- * Tanggal 		: 13 November 2014
- * Deskripsi	: File Header Display Menu Utama
- * Author		: Luqman Arifin
- */
-
-#ifndef _INTERFACE__
-#define _INTERFACE__
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/select.h>
-#include <termios.h>
-#include <time.h>
-#include <stdbool.h>
+#include "interface.h"
 
 static struct termios old_termios, new_termios;
 
@@ -60,5 +43,3 @@ void HideCursor() {
 void ShowCursor() {
 	printf("\e[?25h");
 }
-
-#endif

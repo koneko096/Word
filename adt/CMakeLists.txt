@@ -16,6 +16,8 @@ add_library(adt SHARED
     tree.c
     lqstring.c
     jam.c
+    user.c
+    tanggal.c
 )
 
 set_target_properties(adt PROPERTIES POSITION_INDEPENDENT_CODE ON)
