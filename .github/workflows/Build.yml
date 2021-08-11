@@ -24,6 +24,6 @@ jobs:
     - name: Create directory
       run: ls -al && mkdir -p build && cd build
     - name: Generate build
-      run: cmake ..
+      run: ls ../CMakeLists.txt && cmake ..
     - name: Build
       run: make -j5
