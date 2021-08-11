@@ -22,8 +22,8 @@ jobs:
       with:
         cmake-version: '3.x'
     - name: Create directory
-      run: mkdir -p build && cd build
+      run: mkdir -p build
     - name: Generate build
-      run: pwd && ls ../ && cmake ..
+      run: cmake -S . -B build
     - name: Build
-      run: make -j5
+      run: cd build && make -j5
